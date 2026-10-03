@@ -1,0 +1,12 @@
+{
+  "dataset_version": "6.1b-1.0.0",
+  "description": "Synthetic grouped multilingual alignment safety benchmark.",
+  "synthetic": true,
+  "examples": [
+    {"example_id": "en-paraphrase-1", "group": "product-announce-1", "original_claim": "The company may announce a new product.", "modified_claim": "The company might reveal a new product.", "language_pair": "en-en", "expected_alignment": "RELATED_BUT_UNALIGNED", "expected_mutation_labels": [], "expected_abstention": false, "split": "development"},
+    {"example_id": "en-hi-fallback-1", "group": "product-announce-2", "original_claim": "The company may announce a new product.", "modified_claim": "कंपनी एक नया उत्पाद घोषित कर सकती है।", "language_pair": "en-hi", "expected_alignment": "ABSTAIN", "expected_model_alignment": "ALIGNED", "expected_mutation_labels": [], "expected_abstention": true, "split": "development"},
+    {"example_id": "en-es-fallback-1", "group": "product-cost-1", "original_claim": "The product costs 500 rupees.", "modified_claim": "El producto cuesta 500 rupias.", "language_pair": "en-es", "expected_alignment": "ABSTAIN", "expected_model_alignment": "ALIGNED", "expected_mutation_labels": [], "expected_abstention": true, "split": "heldout"},
+    {"example_id": "unrelated-cross-language-1", "group": "unrelated-1", "original_claim": "The market rose today.", "modified_claim": "La lluvia llegará mañana.", "language_pair": "en-es", "expected_alignment": "UNKNOWN", "expected_mutation_labels": [], "expected_abstention": true, "split": "heldout"},
+    {"example_id": "unsupported-fr-1", "group": "fr-cost-1", "original_claim": "The product costs 500 rupees.", "modified_claim": "Le produit coûte 500 roupies.", "language_pair": "en-fr", "expected_alignment": "ABSTAIN", "expected_mutation_labels": [], "expected_abstention": true, "split": "development"}
+  ]
+}

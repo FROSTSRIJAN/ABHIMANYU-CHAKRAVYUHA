@@ -1,0 +1,26 @@
+{
+  "dataset_version": "6.2-1.0.0",
+  "dataset_hash": "cbb05d037da8665de4829bd78d5d5662f3583c6a06b8d0ed55c854f0ee783523",
+  "synthetic": true,
+  "human_reviewed_examples": 0,
+  "counts": {
+    "total": 16,
+    "splits": {
+      "train": 7,
+      "validation": 4,
+      "test": 5
+    },
+    "language_pairs": {
+      "en-hi": 9,
+      "en-es": 6,
+      "en-fr": 1
+    },
+    "alignment_labels": {
+      "ALIGNED": 12,
+      "RELATED_BUT_UNALIGNED": 1,
+      "DISTINCT": 1,
+      "ABSTAIN": 2
+    }
+  },
+  "group_leakage_check": "passed"
+}

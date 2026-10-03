@@ -1,0 +1,16 @@
+[
+  {
+    "document_id": "demo-001",
+    "passage": "A company announcement may be scheduled for next month, but an announcement is not a guarantee of a share-price increase.",
+    "source_name": "Demo evidence corpus",
+    "source_url": null,
+    "publication_date": null
+  },
+  {
+    "document_id": "demo-002",
+    "passage": "No investment is risk-free. Claims promising guaranteed profits should be independently checked.",
+    "source_name": "Demo evidence corpus",
+    "source_url": null,
+    "publication_date": null
+  }
+]

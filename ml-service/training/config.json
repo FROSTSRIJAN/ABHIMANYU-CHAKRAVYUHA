@@ -1,0 +1,11 @@
+{
+  "base_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "objective": "supervised_pair_similarity",
+  "seed": 42,
+  "epochs": 1,
+  "batch_size": 4,
+  "learning_rate": 0.00002,
+  "max_seq_length": 128,
+  "device": "cpu",
+  "local_files_only": true
+}

@@ -1,0 +1,12 @@
+.env
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+ml-service/.mypy_cache/
+ml-service/.coverage
+ml-service/training/artifacts/
+model-cache/
+datasets/raw/
+*.log
+*.tmp

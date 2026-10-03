@@ -1,0 +1,1033 @@
+﻿{
+  "counts": {
+    "development": 7,
+    "heldout": 7
+  },
+  "dataset_hash": "faa14d3bd1229a14df844e9f425d27e63b8be4dae69d5c2d55c3c93cae815846",
+  "dataset_version": "6.1c-1.0.0",
+  "evaluations": [
+    {
+      "development": {
+        "abstention_rate": 0.7142857142857143,
+        "alignment_f1": null,
+        "alignment_precision": 0.0,
+        "alignment_recall": 0.0,
+        "exact_mutation_label_set_match": 0.5714285714285714,
+        "false_mutation_rate_equivalent": 0.0,
+        "false_mutation_rate_unrelated": 0.0,
+        "mutation_f1": 0.4,
+        "mutation_precision": 0.5,
+        "mutation_recall": 0.3333333333333333,
+        "per_language_pair": {
+          "en-es": {
+            "examples": 3,
+            "mutation_precision": null,
+            "positive_detection_rate": 0.0
+          },
+          "en-hi": {
+            "examples": 4,
+            "mutation_precision": 0.5,
+            "positive_detection_rate": 0.5
+          }
+        },
+        "per_mutation_type": {
+          "CERTAINTY_REDUCTION": {
+            "detection_rate": 1.0,
+            "examples": 1
+          },
+          "NEGATION_MUTATION": {
+            "detection_rate": 0.0,
+            "examples": 1
+          },
+          "NUMERICAL_MUTATION": {
+            "detection_rate": 0.0,
+            "examples": 1
+          }
+        },
+        "positive_mutation_detection_rate": 0.3333333333333333
+      },
+      "heldout": {
+        "abstention_rate": 0.7142857142857143,
+        "alignment_f1": 0.14285714285714285,
+        "alignment_precision": 0.14285714285714285,
+        "alignment_recall": 0.14285714285714285,
+        "exact_mutation_label_set_match": 0.5714285714285714,
+        "false_mutation_rate_equivalent": 0.0,
+        "false_mutation_rate_unrelated": null,
+        "mutation_f1": 0.5714285714285715,
+        "mutation_precision": 1.0,
+        "mutation_recall": 0.4,
+        "per_language_pair": {
+          "en-es": {
+            "examples": 3,
+            "mutation_precision": null,
+            "positive_detection_rate": 0.0
+          },
+          "en-fr": {
+            "examples": 1,
+            "mutation_precision": null,
+            "positive_detection_rate": 0.0
+          },
+          "en-hi": {
+            "examples": 3,
+            "mutation_precision": 1.0,
+            "positive_detection_rate": 0.6666666666666666
+          }
+        },
+        "per_mutation_type": {
+          "CERTAINTY_ESCALATION": {
+            "detection_rate": 0.5,
+            "examples": 2
+          },
+          "NEGATION_MUTATION": {
+            "detection_rate": 0.0,
+            "examples": 1
+          },
+          "NUMERICAL_MUTATION": {
+            "detection_rate": 0.0,
+            "examples": 1
+          },
+          "TEMPORAL_MUTATION": {
+            "detection_rate": 1.0,
+            "examples": 1
+          }
+        },
+        "positive_mutation_detection_rate": 0.4
+      },
+      "metrics": {
+        "abstention_rate": 0.7142857142857143,
+        "alignment_f1": 0.07142857142857142,
+        "alignment_precision": 0.07142857142857142,
+        "alignment_recall": 0.07142857142857142,
+        "exact_mutation_label_set_match": 0.5714285714285714,
+        "false_mutation_rate_equivalent": 0.0,
+        "false_mutation_rate_unrelated": 0.0,
+        "mutation_f1": 0.5,
+        "mutation_precision": 0.75,
+        "mutation_recall": 0.375,
+        "per_language_pair": {
+          "en-es": {
+            "examples": 6,
+            "mutation_precision": null,
+            "positive_detection_rate": 0.0
+          },
+          "en-fr": {
+            "examples": 1,
+            "mutation_precision": null,
+            "positive_detection_rate": 0.0
+          },
+          "en-hi": {
+            "examples": 7,
+            "mutation_precision": 0.75,
+            "positive_detection_rate": 0.6
+          }
+        },
+        "per_mutation_type": {
+          "CERTAINTY_ESCALATION": {
+            "detection_rate": 0.5,
+            "examples": 2
+          },
+          "CERTAINTY_REDUCTION": {
+            "detection_rate": 1.0,
+            "examples": 1
+          },
+          "NEGATION_MUTATION": {
+            "detection_rate": 0.0,
+            "examples": 2
+          },
+          "NUMERICAL_MUTATION": {
+            "detection_rate": 0.0,
+            "examples": 2
+          },
+          "TEMPORAL_MUTATION": {
+            "detection_rate": 1.0,
+            "examples": 1
+          }
+        },
+        "positive_mutation_detection_rate": 0.375
+      },
+      "mode": "deterministic",
+      "records": [
+        {
+          "example_id": "en-hi-equivalent-1",
+          "expected_alignment": "ABSTAIN",
+          "expected_labels": [],
+          "kind": "equivalent",
+          "language_pair": "en-hi",
+          "mutation_type": null,
+          "predicted_abstention": true,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [],
+          "split": "development"
+        },
+        {
+          "example_id": "en-hi-certainty-up-1",
+          "expected_alignment": "ABSTAIN",
+          "expected_labels": [
+            "CERTAINTY_ESCALATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-hi",
+          "mutation_type": "CERTAINTY_ESCALATION",
+          "predicted_abstention": false,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [
+            "CERTAINTY_ESCALATION"
+          ],
+          "split": "heldout"
+        },
+        {
+          "example_id": "en-hi-certainty-down-1",
+          "expected_alignment": "ABSTAIN",
+          "expected_labels": [
+            "CERTAINTY_REDUCTION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-hi",
+          "mutation_type": "CERTAINTY_REDUCTION",
+          "predicted_abstention": false,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [
+            "CERTAINTY_REDUCTION"
+          ],
+          "split": "development"
+        },
+        {
+          "example_id": "en-hi-number-1",
+          "expected_alignment": "ABSTAIN",
+          "expected_labels": [
+            "NUMERICAL_MUTATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-hi",
+          "mutation_type": "NUMERICAL_MUTATION",
+          "predicted_abstention": true,
+          "predicted_alignment": "RELATED_BUT_UNALIGNED",
+          "predicted_labels": [],
+          "split": "heldout"
+        },
+        {
+          "example_id": "en-hi-negation-1",
+          "expected_alignment": "ABSTAIN",
+          "expected_labels": [
+            "NEGATION_MUTATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-hi",
+          "mutation_type": "NEGATION_MUTATION",
+          "predicted_abstention": true,
+          "predicted_alignment": "RELATED_BUT_UNALIGNED",
+          "predicted_labels": [],
+          "split": "development"
+        },
+        {
+          "example_id": "en-hi-date-1",
+          "expected_alignment": "ABSTAIN",
+          "expected_labels": [
+            "TEMPORAL_MUTATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-hi",
+          "mutation_type": "TEMPORAL_MUTATION",
+          "predicted_abstention": false,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [
+            "TEMPORAL_MUTATION"
+          ],
+          "split": "heldout"
+        },
+        {
+          "example_id": "en-es-equivalent-1",
+          "expected_alignment": "ABSTAIN",
+          "expected_labels": [],
+          "kind": "equivalent",
+          "language_pair": "en-es",
+          "mutation_type": null,
+          "predicted_abstention": true,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [],
+          "split": "development"
+        },
+        {
+          "example_id": "en-es-certainty-1",
+          "expected_alignment": "ABSTAIN",
+          "expected_labels": [
+            "CERTAINTY_ESCALATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-es",
+          "mutation_type": "CERTAINTY_ESCALATION",
+          "predicted_abstention": true,
+          "predicted_alignment": "RELATED_BUT_UNALIGNED",
+          "predicted_labels": [],
+          "split": "heldout"
+        },
+        {
+          "example_id": "en-es-number-1",
+          "expected_alignment": "ABSTAIN",
+          "expected_labels": [
+            "NUMERICAL_MUTATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-es",
+          "mutation_type": "NUMERICAL_MUTATION",
+          "predicted_abstention": true,
+          "predicted_alignment": "RELATED_BUT_UNALIGNED",
+          "predicted_labels": [],
+          "split": "development"
+        },
+        {
+          "example_id": "en-es-negation-1",
+          "expected_alignment": "ABSTAIN",
+          "expected_labels": [
+            "NEGATION_MUTATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-es",
+          "mutation_type": "NEGATION_MUTATION",
+          "predicted_abstention": true,
+          "predicted_alignment": "RELATED_BUT_UNALIGNED",
+          "predicted_labels": [],
+          "split": "heldout"
+        },
+        {
+          "example_id": "en-es-unrelated-1",
+          "expected_alignment": "ABSTAIN",
+          "expected_labels": [],
+          "kind": "unrelated",
+          "language_pair": "en-es",
+          "mutation_type": null,
+          "predicted_abstention": true,
+          "predicted_alignment": "DISTINCT",
+          "predicted_labels": [],
+          "split": "development"
+        },
+        {
+          "example_id": "en-fr-unsupported-1",
+          "expected_alignment": "ABSTAIN",
+          "expected_labels": [],
+          "kind": "unsupported",
+          "language_pair": "en-fr",
+          "mutation_type": null,
+          "predicted_abstention": true,
+          "predicted_alignment": "ABSTAIN",
+          "predicted_labels": [],
+          "split": "heldout"
+        },
+        {
+          "example_id": "en-hi-ambiguous-1",
+          "expected_alignment": "ABSTAIN",
+          "expected_labels": [],
+          "kind": "ambiguous",
+          "language_pair": "en-hi",
+          "mutation_type": null,
+          "predicted_abstention": false,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [
+            "NEGATION_MUTATION"
+          ],
+          "split": "development"
+        },
+        {
+          "example_id": "en-es-equivalent-2",
+          "expected_alignment": "ABSTAIN",
+          "expected_labels": [],
+          "kind": "equivalent",
+          "language_pair": "en-es",
+          "mutation_type": null,
+          "predicted_abstention": true,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [],
+          "split": "heldout"
+        }
+      ]
+    },
+    {
+      "development": {
+        "abstention_rate": 0.5714285714285714,
+        "alignment_f1": 1.0,
+        "alignment_precision": 1.0,
+        "alignment_recall": 1.0,
+        "exact_mutation_label_set_match": 1.0,
+        "false_mutation_rate_equivalent": 0.0,
+        "false_mutation_rate_unrelated": 0.0,
+        "mutation_f1": 1.0,
+        "mutation_precision": 1.0,
+        "mutation_recall": 1.0,
+        "per_language_pair": {
+          "en-es": {
+            "examples": 3,
+            "mutation_precision": 1.0,
+            "positive_detection_rate": 1.0
+          },
+          "en-hi": {
+            "examples": 4,
+            "mutation_precision": 1.0,
+            "positive_detection_rate": 1.0
+          }
+        },
+        "per_mutation_type": {
+          "CERTAINTY_REDUCTION": {
+            "detection_rate": 1.0,
+            "examples": 1
+          },
+          "NEGATION_MUTATION": {
+            "detection_rate": 1.0,
+            "examples": 1
+          },
+          "NUMERICAL_MUTATION": {
+            "detection_rate": 1.0,
+            "examples": 1
+          }
+        },
+        "positive_mutation_detection_rate": 1.0
+      },
+      "heldout": {
+        "abstention_rate": 0.2857142857142857,
+        "alignment_f1": 1.0,
+        "alignment_precision": 1.0,
+        "alignment_recall": 1.0,
+        "exact_mutation_label_set_match": 1.0,
+        "false_mutation_rate_equivalent": 0.0,
+        "false_mutation_rate_unrelated": null,
+        "mutation_f1": 1.0,
+        "mutation_precision": 1.0,
+        "mutation_recall": 1.0,
+        "per_language_pair": {
+          "en-es": {
+            "examples": 3,
+            "mutation_precision": 1.0,
+            "positive_detection_rate": 1.0
+          },
+          "en-fr": {
+            "examples": 1,
+            "mutation_precision": null,
+            "positive_detection_rate": 0.0
+          },
+          "en-hi": {
+            "examples": 3,
+            "mutation_precision": 1.0,
+            "positive_detection_rate": 1.0
+          }
+        },
+        "per_mutation_type": {
+          "CERTAINTY_ESCALATION": {
+            "detection_rate": 1.0,
+            "examples": 2
+          },
+          "NEGATION_MUTATION": {
+            "detection_rate": 1.0,
+            "examples": 1
+          },
+          "NUMERICAL_MUTATION": {
+            "detection_rate": 1.0,
+            "examples": 1
+          },
+          "TEMPORAL_MUTATION": {
+            "detection_rate": 1.0,
+            "examples": 1
+          }
+        },
+        "positive_mutation_detection_rate": 1.0
+      },
+      "metrics": {
+        "abstention_rate": 0.42857142857142855,
+        "alignment_f1": 1.0,
+        "alignment_precision": 1.0,
+        "alignment_recall": 1.0,
+        "exact_mutation_label_set_match": 1.0,
+        "false_mutation_rate_equivalent": 0.0,
+        "false_mutation_rate_unrelated": 0.0,
+        "mutation_f1": 1.0,
+        "mutation_precision": 1.0,
+        "mutation_recall": 1.0,
+        "per_language_pair": {
+          "en-es": {
+            "examples": 6,
+            "mutation_precision": 1.0,
+            "positive_detection_rate": 1.0
+          },
+          "en-fr": {
+            "examples": 1,
+            "mutation_precision": null,
+            "positive_detection_rate": 0.0
+          },
+          "en-hi": {
+            "examples": 7,
+            "mutation_precision": 1.0,
+            "positive_detection_rate": 1.0
+          }
+        },
+        "per_mutation_type": {
+          "CERTAINTY_ESCALATION": {
+            "detection_rate": 1.0,
+            "examples": 2
+          },
+          "CERTAINTY_REDUCTION": {
+            "detection_rate": 1.0,
+            "examples": 1
+          },
+          "NEGATION_MUTATION": {
+            "detection_rate": 1.0,
+            "examples": 2
+          },
+          "NUMERICAL_MUTATION": {
+            "detection_rate": 1.0,
+            "examples": 2
+          },
+          "TEMPORAL_MUTATION": {
+            "detection_rate": 1.0,
+            "examples": 1
+          }
+        },
+        "positive_mutation_detection_rate": 1.0
+      },
+      "mode": "mocked",
+      "records": [
+        {
+          "example_id": "en-hi-equivalent-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [],
+          "kind": "equivalent",
+          "language_pair": "en-hi",
+          "mutation_type": null,
+          "predicted_abstention": true,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [],
+          "split": "development"
+        },
+        {
+          "example_id": "en-hi-certainty-up-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [
+            "CERTAINTY_ESCALATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-hi",
+          "mutation_type": "CERTAINTY_ESCALATION",
+          "predicted_abstention": false,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [
+            "CERTAINTY_ESCALATION"
+          ],
+          "split": "heldout"
+        },
+        {
+          "example_id": "en-hi-certainty-down-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [
+            "CERTAINTY_REDUCTION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-hi",
+          "mutation_type": "CERTAINTY_REDUCTION",
+          "predicted_abstention": false,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [
+            "CERTAINTY_REDUCTION"
+          ],
+          "split": "development"
+        },
+        {
+          "example_id": "en-hi-number-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [
+            "NUMERICAL_MUTATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-hi",
+          "mutation_type": "NUMERICAL_MUTATION",
+          "predicted_abstention": false,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [
+            "NUMERICAL_MUTATION"
+          ],
+          "split": "heldout"
+        },
+        {
+          "example_id": "en-hi-negation-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [
+            "NEGATION_MUTATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-hi",
+          "mutation_type": "NEGATION_MUTATION",
+          "predicted_abstention": false,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [
+            "NEGATION_MUTATION"
+          ],
+          "split": "development"
+        },
+        {
+          "example_id": "en-hi-date-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [
+            "TEMPORAL_MUTATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-hi",
+          "mutation_type": "TEMPORAL_MUTATION",
+          "predicted_abstention": false,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [
+            "TEMPORAL_MUTATION"
+          ],
+          "split": "heldout"
+        },
+        {
+          "example_id": "en-es-equivalent-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [],
+          "kind": "equivalent",
+          "language_pair": "en-es",
+          "mutation_type": null,
+          "predicted_abstention": true,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [],
+          "split": "development"
+        },
+        {
+          "example_id": "en-es-certainty-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [
+            "CERTAINTY_ESCALATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-es",
+          "mutation_type": "CERTAINTY_ESCALATION",
+          "predicted_abstention": false,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [
+            "CERTAINTY_ESCALATION"
+          ],
+          "split": "heldout"
+        },
+        {
+          "example_id": "en-es-number-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [
+            "NUMERICAL_MUTATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-es",
+          "mutation_type": "NUMERICAL_MUTATION",
+          "predicted_abstention": false,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [
+            "NUMERICAL_MUTATION"
+          ],
+          "split": "development"
+        },
+        {
+          "example_id": "en-es-negation-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [
+            "NEGATION_MUTATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-es",
+          "mutation_type": "NEGATION_MUTATION",
+          "predicted_abstention": false,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [
+            "NEGATION_MUTATION"
+          ],
+          "split": "heldout"
+        },
+        {
+          "example_id": "en-es-unrelated-1",
+          "expected_alignment": "DISTINCT",
+          "expected_labels": [],
+          "kind": "unrelated",
+          "language_pair": "en-es",
+          "mutation_type": null,
+          "predicted_abstention": true,
+          "predicted_alignment": "DISTINCT",
+          "predicted_labels": [],
+          "split": "development"
+        },
+        {
+          "example_id": "en-fr-unsupported-1",
+          "expected_alignment": "ABSTAIN",
+          "expected_labels": [],
+          "kind": "unsupported",
+          "language_pair": "en-fr",
+          "mutation_type": null,
+          "predicted_abstention": true,
+          "predicted_alignment": "ABSTAIN",
+          "predicted_labels": [],
+          "split": "heldout"
+        },
+        {
+          "example_id": "en-hi-ambiguous-1",
+          "expected_alignment": "RELATED_BUT_UNALIGNED",
+          "expected_labels": [],
+          "kind": "ambiguous",
+          "language_pair": "en-hi",
+          "mutation_type": null,
+          "predicted_abstention": true,
+          "predicted_alignment": "RELATED_BUT_UNALIGNED",
+          "predicted_labels": [],
+          "split": "development"
+        },
+        {
+          "example_id": "en-es-equivalent-2",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [],
+          "kind": "equivalent",
+          "language_pair": "en-es",
+          "mutation_type": null,
+          "predicted_abstention": true,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [],
+          "split": "heldout"
+        }
+      ]
+    },
+    {
+      "development": {
+        "abstention_rate": 0.7142857142857143,
+        "alignment_f1": 0.5714285714285714,
+        "alignment_precision": 0.5714285714285714,
+        "alignment_recall": 0.5714285714285714,
+        "exact_mutation_label_set_match": 0.5714285714285714,
+        "false_mutation_rate_equivalent": 0.0,
+        "false_mutation_rate_unrelated": 0.0,
+        "mutation_f1": 0.4,
+        "mutation_precision": 0.5,
+        "mutation_recall": 0.3333333333333333,
+        "per_language_pair": {
+          "en-es": {
+            "examples": 3,
+            "mutation_precision": null,
+            "positive_detection_rate": 0.0
+          },
+          "en-hi": {
+            "examples": 4,
+            "mutation_precision": 0.5,
+            "positive_detection_rate": 0.5
+          }
+        },
+        "per_mutation_type": {
+          "CERTAINTY_REDUCTION": {
+            "detection_rate": 1.0,
+            "examples": 1
+          },
+          "NEGATION_MUTATION": {
+            "detection_rate": 0.0,
+            "examples": 1
+          },
+          "NUMERICAL_MUTATION": {
+            "detection_rate": 0.0,
+            "examples": 1
+          }
+        },
+        "positive_mutation_detection_rate": 0.3333333333333333
+      },
+      "heldout": {
+        "abstention_rate": 0.7142857142857143,
+        "alignment_f1": 0.5714285714285714,
+        "alignment_precision": 0.5714285714285714,
+        "alignment_recall": 0.5714285714285714,
+        "exact_mutation_label_set_match": 0.5714285714285714,
+        "false_mutation_rate_equivalent": 0.0,
+        "false_mutation_rate_unrelated": null,
+        "mutation_f1": 0.5714285714285715,
+        "mutation_precision": 1.0,
+        "mutation_recall": 0.4,
+        "per_language_pair": {
+          "en-es": {
+            "examples": 3,
+            "mutation_precision": null,
+            "positive_detection_rate": 0.0
+          },
+          "en-fr": {
+            "examples": 1,
+            "mutation_precision": null,
+            "positive_detection_rate": 0.0
+          },
+          "en-hi": {
+            "examples": 3,
+            "mutation_precision": 1.0,
+            "positive_detection_rate": 0.6666666666666666
+          }
+        },
+        "per_mutation_type": {
+          "CERTAINTY_ESCALATION": {
+            "detection_rate": 0.5,
+            "examples": 2
+          },
+          "NEGATION_MUTATION": {
+            "detection_rate": 0.0,
+            "examples": 1
+          },
+          "NUMERICAL_MUTATION": {
+            "detection_rate": 0.0,
+            "examples": 1
+          },
+          "TEMPORAL_MUTATION": {
+            "detection_rate": 1.0,
+            "examples": 1
+          }
+        },
+        "positive_mutation_detection_rate": 0.4
+      },
+      "metrics": {
+        "abstention_rate": 0.7142857142857143,
+        "alignment_f1": 0.5714285714285714,
+        "alignment_precision": 0.5714285714285714,
+        "alignment_recall": 0.5714285714285714,
+        "exact_mutation_label_set_match": 0.5714285714285714,
+        "false_mutation_rate_equivalent": 0.0,
+        "false_mutation_rate_unrelated": 0.0,
+        "mutation_f1": 0.5,
+        "mutation_precision": 0.75,
+        "mutation_recall": 0.375,
+        "per_language_pair": {
+          "en-es": {
+            "examples": 6,
+            "mutation_precision": null,
+            "positive_detection_rate": 0.0
+          },
+          "en-fr": {
+            "examples": 1,
+            "mutation_precision": null,
+            "positive_detection_rate": 0.0
+          },
+          "en-hi": {
+            "examples": 7,
+            "mutation_precision": 0.75,
+            "positive_detection_rate": 0.6
+          }
+        },
+        "per_mutation_type": {
+          "CERTAINTY_ESCALATION": {
+            "detection_rate": 0.5,
+            "examples": 2
+          },
+          "CERTAINTY_REDUCTION": {
+            "detection_rate": 1.0,
+            "examples": 1
+          },
+          "NEGATION_MUTATION": {
+            "detection_rate": 0.0,
+            "examples": 2
+          },
+          "NUMERICAL_MUTATION": {
+            "detection_rate": 0.0,
+            "examples": 2
+          },
+          "TEMPORAL_MUTATION": {
+            "detection_rate": 1.0,
+            "examples": 1
+          }
+        },
+        "positive_mutation_detection_rate": 0.375
+      },
+      "mode": "real",
+      "records": [
+        {
+          "example_id": "en-hi-equivalent-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [],
+          "kind": "equivalent",
+          "language_pair": "en-hi",
+          "mutation_type": null,
+          "predicted_abstention": true,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [],
+          "split": "development"
+        },
+        {
+          "example_id": "en-hi-certainty-up-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [
+            "CERTAINTY_ESCALATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-hi",
+          "mutation_type": "CERTAINTY_ESCALATION",
+          "predicted_abstention": false,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [
+            "CERTAINTY_ESCALATION"
+          ],
+          "split": "heldout"
+        },
+        {
+          "example_id": "en-hi-certainty-down-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [
+            "CERTAINTY_REDUCTION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-hi",
+          "mutation_type": "CERTAINTY_REDUCTION",
+          "predicted_abstention": false,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [
+            "CERTAINTY_REDUCTION"
+          ],
+          "split": "development"
+        },
+        {
+          "example_id": "en-hi-number-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [
+            "NUMERICAL_MUTATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-hi",
+          "mutation_type": "NUMERICAL_MUTATION",
+          "predicted_abstention": true,
+          "predicted_alignment": "RELATED_BUT_UNALIGNED",
+          "predicted_labels": [],
+          "split": "heldout"
+        },
+        {
+          "example_id": "en-hi-negation-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [
+            "NEGATION_MUTATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-hi",
+          "mutation_type": "NEGATION_MUTATION",
+          "predicted_abstention": true,
+          "predicted_alignment": "RELATED_BUT_UNALIGNED",
+          "predicted_labels": [],
+          "split": "development"
+        },
+        {
+          "example_id": "en-hi-date-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [
+            "TEMPORAL_MUTATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-hi",
+          "mutation_type": "TEMPORAL_MUTATION",
+          "predicted_abstention": false,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [
+            "TEMPORAL_MUTATION"
+          ],
+          "split": "heldout"
+        },
+        {
+          "example_id": "en-es-equivalent-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [],
+          "kind": "equivalent",
+          "language_pair": "en-es",
+          "mutation_type": null,
+          "predicted_abstention": true,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [],
+          "split": "development"
+        },
+        {
+          "example_id": "en-es-certainty-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [
+            "CERTAINTY_ESCALATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-es",
+          "mutation_type": "CERTAINTY_ESCALATION",
+          "predicted_abstention": true,
+          "predicted_alignment": "RELATED_BUT_UNALIGNED",
+          "predicted_labels": [],
+          "split": "heldout"
+        },
+        {
+          "example_id": "en-es-number-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [
+            "NUMERICAL_MUTATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-es",
+          "mutation_type": "NUMERICAL_MUTATION",
+          "predicted_abstention": true,
+          "predicted_alignment": "RELATED_BUT_UNALIGNED",
+          "predicted_labels": [],
+          "split": "development"
+        },
+        {
+          "example_id": "en-es-negation-1",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [
+            "NEGATION_MUTATION"
+          ],
+          "kind": "positive",
+          "language_pair": "en-es",
+          "mutation_type": "NEGATION_MUTATION",
+          "predicted_abstention": true,
+          "predicted_alignment": "RELATED_BUT_UNALIGNED",
+          "predicted_labels": [],
+          "split": "heldout"
+        },
+        {
+          "example_id": "en-es-unrelated-1",
+          "expected_alignment": "DISTINCT",
+          "expected_labels": [],
+          "kind": "unrelated",
+          "language_pair": "en-es",
+          "mutation_type": null,
+          "predicted_abstention": true,
+          "predicted_alignment": "DISTINCT",
+          "predicted_labels": [],
+          "split": "development"
+        },
+        {
+          "example_id": "en-fr-unsupported-1",
+          "expected_alignment": "ABSTAIN",
+          "expected_labels": [],
+          "kind": "unsupported",
+          "language_pair": "en-fr",
+          "mutation_type": null,
+          "predicted_abstention": true,
+          "predicted_alignment": "ABSTAIN",
+          "predicted_labels": [],
+          "split": "heldout"
+        },
+        {
+          "example_id": "en-hi-ambiguous-1",
+          "expected_alignment": "RELATED_BUT_UNALIGNED",
+          "expected_labels": [],
+          "kind": "ambiguous",
+          "language_pair": "en-hi",
+          "mutation_type": null,
+          "predicted_abstention": false,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [
+            "NEGATION_MUTATION"
+          ],
+          "split": "development"
+        },
+        {
+          "example_id": "en-es-equivalent-2",
+          "expected_alignment": "ALIGNED",
+          "expected_labels": [],
+          "kind": "equivalent",
+          "language_pair": "en-es",
+          "mutation_type": null,
+          "predicted_abstention": true,
+          "predicted_alignment": "ALIGNED",
+          "predicted_labels": [],
+          "split": "heldout"
+        }
+      ]
+    }
+  ],
+  "real_model_note": "Real mode is unavailable unless explicitly enabled with STAGE_6_1C_RUN_REAL_MODEL=true and ENABLE_TRANSFORMERS=true.",
+  "split_integrity": {
+    "groups": 14,
+    "leaked_groups": [],
+    "passed": true
+  },
+  "synthetic": true
+}
