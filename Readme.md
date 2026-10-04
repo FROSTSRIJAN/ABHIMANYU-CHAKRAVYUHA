@@ -1,45 +1,65 @@
-# EchoTrap Frontend — Mock Prototype
+# EchoTrap
 
-A polished, mock-data-only React frontend for the SANGYAN investor-protection hackathon concept **EchoTrap**.
+See [README.md](README.md) for the current integrated frontend, tRPC backend,
+Python ML service, local setup, verification commands, and security policy.
+python -m uvicorn app.main:app --reload --port 8000
+```
 
-## What works
-- Professional landing page
-- 2–5 message analyzer
-- Load-demo flow
-- Validation + add/remove messages
-- Simulated NLP processing screen
-- Claim-evolution timeline
-- Phrase-level highlights with hover explanations
-- Mutation cards and language-signal cards
-- English/Hindi explanation toggle
-- Investor-safety guidance
-- Mobile responsive layout
-- No backend, database or ML dependency
+### Terminal 2: primary application
 
-## Run locally
-```bash
-npm install
+```powershell
+cd "C:\path\to\ABHIMANYU-CHAKRAVYUHA\Echotrap\app"
+npm install --legacy-peer-deps
 npm run dev
 ```
 
-Open the local Vite URL shown in the terminal.
+Open the URL printed by Vite, normally `http://localhost:3000`.
 
-## Demo flow
-1. Open landing page
-2. Click **Analyze message sequence**
-3. Demo sequence is already loaded (or click **Load demo sequence**)
-4. Click **Run mutation analysis**
-5. Wait for simulated processing
-6. Review claim evolution, language shifts and safety guidance
-7. Use the EN / हिं toggle in the top-right to switch the explanation language
+For local development without MySQL, no application `.env` file is required;
+the app stores runs in memory. For persistent storage, create an untracked
+`Echotrap/app/.env` file containing:
 
-## Integration later
-The mock result lives in `src/mockAnalysis.ts`.
-When the backend is ready, replace the local result with the backend response while keeping the same data shape.
+```env
+APP_ID=echotrap
+APP_SECRET=local-development-secret
+DATABASE_URL=mysql://user:password@host:3306/database
+ML_SERVICE_URL=http://127.0.0.1:8000
+```
 
-## Important positioning
-EchoTrap identifies changes in supplied language. It does **not**:
+Never commit `.env` files, API keys, database credentials, or other secrets.
+
+## Verification
+
+```powershell
+# Primary app
+cd Echotrap/app
+npm run check
+npm run build
+
+# Python service
+cd ../../ml-service
+python -m pytest tests/test_api.py -q
+```
+
+Useful live checks:
+
+```powershell
+Invoke-RestMethod http://127.0.0.1:8000/health
+Invoke-RestMethod http://localhost:3000/api/trpc/ping
+```
+
+After submitting an analysis, the result diagnostics should identify the
+engine as `python-ml-service` when the ML service handled the request.
+
+## Safety boundary
+
+EchoTrap identifies changes in supplied language. It does not:
+
 - prove that a message is fraudulent,
 - prove that one message was forwarded from another,
 - verify stock-price outcomes,
-- provide buy/sell/hold recommendations.
+- create authoritative evidence from an LLM,
+- provide buy, sell, or hold recommendations.
+
+Groq, when enabled, is advisory only. The local pipeline and evidence
+limitations remain authoritative.
