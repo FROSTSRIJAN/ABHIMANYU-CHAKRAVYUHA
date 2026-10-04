@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#102326" />
+  <title>EchoTrap — Mock Demo</title>
+  <link rel="stylesheet" href="src/styles.css" />
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <button class="logo-button" id="homeBtn" aria-label="EchoTrap home">
+      <div class="brand"><div class="brand-mark"><span></span><span></span><span></span></div><div><strong>EchoTrap</strong><small>Claim mutation intelligence</small></div></div>
+    </button>
+    <nav>
+      <button class="nav-link" id="navAnalyze">Analyze messages</button>
+      <button class="lang-toggle" id="langBtn" aria-label="Switch explanation language">◎ <span id="langLabel">EN</span></button>
+    </nav>
+  </header>
+
+  <section class="screen active" id="homeScreen">
+    <main class="home-page">
+      <section class="hero-shell">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span>Investor language intelligence</div>
+          <h1>See what changed.<br/><em>Not just what was said.</em></h1>
+          <p class="hero-lede">EchoTrap compares related financial messages and reveals how certainty, urgency and outcome claims change from one version to the next.</p>
+          <div class="hero-actions">
+            <button class="primary-button" id="startBtn">Analyze message sequence →</button>
+            <div class="privacy-note">◈ <span>Mock prototype · no message data is uploaded</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="case-header"><div><small>EXAMPLE SEQUENCE</small><strong>How one claim changes</strong></div><span class="case-id">ET-024</span></div>
+          <div class="mini-thread">
+            <div class="mini-message"><span class="message-index">01</span><p>ABC Ltd <mark class="mark-soft">may announce</mark> a new project next quarter.</p><span class="certainty-chip neutral">Reported</span></div>
+            <div class="thread-link"><span></span><b>certainty ↑</b></div>
+            <div class="mini-message"><span class="message-index">02</span><p>ABC Ltd <mark class="mark-watch">has confirmed</mark> a major new project.</p><span class="certainty-chip watch">Asserted</span></div>
+            <div class="thread-link danger"><span></span><b>outcome + urgency added</b></div>
+            <div class="mini-message active"><span class="message-index">03</span><p><mark class="mark-danger">Guaranteed profit</mark> — <mark class="mark-danger">invest immediately</mark>.</p><span class="certainty-chip strong">Absolute</span></div>
+          </div>
+          <div class="hero-visual-footer">ⓘ Linguistic change ≠ proof of fraud or message propagation</div>
+        </div>
+      </section>
+      <section class="principles">
+        <div class="section-heading"><span>WHY ECHOTRAP</span><h2>Designed for the moment a claim starts drifting.</h2></div>
+        <div class="principle-grid">
+          <article><div class="principle-number">01</div><h3>Compare meaning, not keywords</h3><p>Spot when a cautious statement becomes certain, promotional or absolute.</p></article>
+          <article><div class="principle-number">02</div><h3>Show the exact language shift</h3><p>Highlight the phrase that introduced urgency, scarcity or guaranteed outcomes.</p></article>
+          <article><div class="principle-number">03</div><h3>Explain without overclaiming</h3><p>Surface warning signals while keeping uncertainty and verification boundaries visible.</p></article>
+        </div>
+      </section>
+    </main>
+  </section>
+
+  <section class="screen" id="analyzerScreen">
+    <main class="analyzer-page page-wrap">
+      <div class="page-kicker">NEW ANALYSIS</div>
+      <div class="analyzer-head">
+        <div><h1>Compare a message sequence</h1><p>Paste 2–5 related versions in the order you encountered them. EchoTrap will compare how the language changes.</p></div>
+        <button class="secondary-button" id="loadSample">✦ Load demo sequence</button>
+      </div>
+      <div class="analyzer-layout">
+        <section class="composer-panel">
+          <div class="composer-title"><span>MESSAGE SEQUENCE</span><span id="messageCount">3/5</span></div>
+          <div class="message-stack" id="messageStack"></div>
+          <button class="add-message" id="addMessage">＋ Add another version</button>
+        </section>
+        <aside class="analysis-sidebar">
+          <div class="sidebar-card dark-card"><span class="sidebar-label">ANALYSIS MODE</span><h3>Claim mutation</h3><p>Compares semantic continuity, certainty shifts and persuasion signals across supplied messages.</p><div class="mode-list"><span>✓ Semantic relatedness</span><span>✓ Certainty & framing shifts</span><span>✓ Urgency & scarcity cues</span><span>✓ Guaranteed-outcome language</span></div></div>
+          <div class="sidebar-card privacy-card"><span>◈</span><div><strong>Prototype privacy mode</strong><p>This demo runs on local mock data. Nothing you type is transmitted or stored.</p></div></div>
+          <button class="primary-button analyze-button" id="runAnalysis">Run mutation analysis →</button>
+          <p class="helper-text" id="helperText">Add at least two messages with enough context to continue.</p>
+        </aside>
+      </div>
+    </main>
+  </section>
+
+  <section class="screen" id="processingScreen">
+    <main class="processing-page page-wrap">
+      <div class="processing-card"><div class="scan-visual"><div class="scan-line"></div><span>ET</span></div><div class="processing-copy"><div class="page-kicker">ANALYSIS IN PROGRESS</div><h1>Tracing how the claim changed</h1><p>EchoTrap is comparing the supplied versions, not verifying market outcomes.</p><div class="processing-steps"><div class="processing-step done"><span>✓</span>Reading supplied versions</div><div class="processing-step done"><span>✓</span>Comparing semantic continuity</div><div class="processing-step done"><span>✓</span>Locating certainty shifts</div><div class="processing-step active"><span>04</span>Scanning persuasion language</div><div class="processing-step"><span>05</span>Building explanation</div></div></div></div>
+    </main>
+  </section>
+
+  <section class="screen" id="resultsScreen">
+    <main class="results-page page-wrap">
+      <div class="results-topline"><div><div class="page-kicker">ANALYSIS COMPLETE · ET-024</div><h1>Claim evolution report</h1></div><button class="secondary-button" id="newAnalysis">↻ New analysis</button></div>
+      <section class="status-banner"><div class="status-icon">⚑</div><div><span>LANGUAGE-RISK SUMMARY</span><h2>Multiple language-risk signals detected</h2><p>The sequence shifts from an uncertain report to a confident assertion, then adds an unsupported guaranteed-outcome claim and pressure to act immediately.</p></div><div class="status-note">Interpret as warning signals,<br/>not a fraud verdict.</div></section>
+      <section class="report-section"><div class="section-label-row"><span>01 · CLAIM EVOLUTION</span><small>Hover highlighted phrases for context</small></div>
+        <div class="timeline-grid">
+          <div class="timeline-unit"><article class="message-analysis"><div class="analysis-card-head"><span>MESSAGE 01</span><span class="certainty-chip neutral">Reported</span></div><p>ABC Ltd <mark class="highlight certainty" title="The claim is explicitly uncertain.">may announce</mark> a new manufacturing project next quarter, according to early market chatter.</p><div class="signal-tags"><span>certainty</span></div></article><div class="timeline-arrow"><span></span>→</div></div>
+          <div class="timeline-unit"><article class="message-analysis"><div class="analysis-card-head"><span>MESSAGE 02</span><span class="certainty-chip watch">Asserted</span></div><p>ABC Ltd <mark class="highlight certainty" title="Uncertainty has been converted into a definite assertion.">has confirmed</mark> a major manufacturing project and investors are expecting a <mark class="highlight social-proof" title="A market-outcome expectation is introduced without evidence in the supplied messages.">strong reaction</mark>.</p><div class="signal-tags"><span>certainty</span><span>social proof</span></div></article><div class="timeline-arrow"><span></span>→</div></div>
+          <div class="timeline-unit"><article class="message-analysis final"><div class="analysis-card-head"><span>MESSAGE 03</span><span class="certainty-chip strong">Absolute</span></div><p><mark class="highlight certainty" title="The message opens with absolute certainty.">Confirmed!</mark> ABC Ltd is set to explode after the project news. <mark class="highlight guarantee" title="A guaranteed financial outcome has been added.">Guaranteed profit</mark> — <mark class="highlight urgency" title="The user is pressured to act without time for verification.">invest immediately</mark> <mark class="highlight scarcity" title="Scarcity/exclusivity language is used to increase pressure.">before everyone finds out</mark>.</p><div class="signal-tags"><span>guarantee</span><span>urgency</span><span>scarcity</span></div></article></div>
+        </div>
+        <div class="mutation-list"><article class="mutation-row tone-watch"><div class="mutation-route"><span>1</span><b>→</b><span>2</span></div><div><h3>Certainty increased</h3><p>“May announce” becomes “has confirmed”, changing a possibility into a stated fact.</p></div><span class="mutation-status">Meaning shift</span></article><article class="mutation-row tone-strong"><div class="mutation-route"><span>2</span><b>→</b><span>3</span></div><div><h3>Outcome claim introduced</h3><p>The final version adds “Guaranteed profit”, which did not exist in earlier messages.</p></div><span class="mutation-status">High-salience shift</span></article><article class="mutation-row tone-strong"><div class="mutation-route"><span>2</span><b>→</b><span>3</span></div><div><h3>Urgency & scarcity added</h3><p>“Invest immediately” and “before everyone finds out” push the reader toward fast action.</p></div><span class="mutation-status">High-salience shift</span></article></div>
+      </section>
+      <section class="report-section signals-section"><div class="section-label-row"><span>02 · LANGUAGE SIGNALS</span><small>Descriptive indicators only</small></div><div class="signal-grid"><article class="signal-card tone-neutral"><span>Semantic relatedness</span><strong>81%</strong><p>Messages discuss the same underlying topic</p></article><article class="signal-card tone-strong"><span>Certainty shift</span><strong>High</strong><p>Reported → asserted → absolute</p></article><article class="signal-card tone-watch"><span>Urgency language</span><strong>Present</strong><p>Action pressure appears in the final version</p></article><article class="signal-card tone-strong"><span>Guaranteed outcome</span><strong>Present</strong><p>A guaranteed-profit phrase is introduced</p></article></div></section>
+      <section class="explanation-grid"><article class="explanation-card"><div class="section-label-row"><span>03 · PLAIN-LANGUAGE EXPLANATION</span><small id="explainLang">English</small></div><p id="explanationCopy">The first message is cautious and frames the information as a possibility. The second version removes that uncertainty and presents the project as confirmed. The third version goes further by introducing a guaranteed financial outcome, urgency, and exclusivity. EchoTrap is identifying changes in language and framing; it is not proving whether the underlying claim is true or false.</p><div class="boundary-note">ⓘ <span>EchoTrap compares language supplied by the user. It does not establish the truth of the underlying claim or prove that one message caused another.</span></div></article><article class="safety-card"><div class="section-label-row"><span>04 · SAFER NEXT STEPS</span><span>◈</span></div><h2 id="safetyTitle">Before acting on the claim</h2><div class="safety-list" id="safetyList"></div></article></section>
+      <div class="report-footer"><span>EchoTrap prototype · mock analysis for SANGYAN demo</span><span>Investor protection, not investment advice</span></div>
+    </main>
+  </section>
+</div>
+<script src="demo.js"></script>
+</body>
+</html>
