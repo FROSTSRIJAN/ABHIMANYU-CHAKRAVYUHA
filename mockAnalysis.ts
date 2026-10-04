@@ -104,5 +104,30 @@ export const mockAnalysis = {
       'महत्वपूर्ण दावों को उपयुक्त आधिकारिक स्रोतों से स्वतंत्र रूप से सत्यापित करें।',
       'सिर्फ़ फ़ॉरवर्ड किए गए या बार-बार दोहराए गए संदेश को प्रमाण न मानें।'
     ]
+  },
+  diagnostics: {
+    averageSimilarity: 81,
+    strongestSignal: 'certainty and urgency escalation',
+    certaintyShift: 'increased',
+    urgencyShift: 'increased',
+    modelMode: 'lexical fallback + mutation heuristics',
+    rawPairs: [
+      {
+        message_index: 1,
+        certainty_change: 'INCREASED',
+        urgency_change: 'UNCHANGED',
+        semantic_similarity: 0.81,
+        added_claims: [],
+        persuasion_indicators: ['has confirmed']
+      },
+      {
+        message_index: 2,
+        certainty_change: 'INCREASED',
+        urgency_change: 'INCREASED',
+        semantic_similarity: 0.79,
+        added_claims: ['Guaranteed profit'],
+        persuasion_indicators: ['Guaranteed profit', 'invest immediately']
+      }
+    ]
   }
 }

@@ -1,5 +1,6 @@
 import { useMemo, useState, type ReactNode } from 'react'
 import { mockAnalysis, sampleMessages, type MessageItem } from './mockAnalysis'
+import { fetchSequenceAnalysis, mapSequenceToAnalysisReport, type AnalysisReport } from './api'
 
 type View = 'home' | 'analyzer' | 'processing' | 'results'
 type Lang = 'en' | 'hi'
@@ -188,8 +189,8 @@ function HighlightedText({ item }: { item: MessageItem }) {
   return <>{parts}</>
 }
 
-function Results({ lang, restart }: { lang: Lang; restart: () => void }) {
-  const data = mockAnalysis
+function Results({ lang, restart, report }: { lang: Lang; restart: () => void; report?: AnalysisReport | null }) {
+  const data: AnalysisReport = (report ?? mockAnalysis) as AnalysisReport
   return (
     <main className="results-page page-wrap">
       <div className="results-topline">
@@ -256,6 +257,34 @@ function Results({ lang, restart }: { lang: Lang; restart: () => void }) {
         </article>
       </section>
 
+      {data.diagnostics && (
+        <section className="report-section signals-section">
+          <div className="section-label-row"><span>05 · ML PIPELINE DIAGNOSTICS</span><small>Real backend indicators</small></div>
+          <div className="signal-grid">
+            <article className="signal-card tone-neutral">
+              <span>Average similarity</span>
+              <strong>{data.diagnostics.averageSimilarity}%</strong>
+              <p>Mean pairwise semantic similarity across the sequence.</p>
+            </article>
+            <article className="signal-card tone-watch">
+              <span>Certainty shift</span>
+              <strong>{data.diagnostics.certaintyShift}</strong>
+              <p>Directional change in claim confidence across the message chain.</p>
+            </article>
+            <article className="signal-card tone-strong">
+              <span>Urgency shift</span>
+              <strong>{data.diagnostics.urgencyShift}</strong>
+              <p>Whether urgency or pressure language increased downstream.</p>
+            </article>
+            <article className="signal-card tone-strong">
+              <span>Pipeline mode</span>
+              <strong>{data.diagnostics.modelMode}</strong>
+              <p>Current interpretation path used by the backend service.</p>
+            </article>
+          </div>
+        </section>
+      )}
+
       <div className="report-footer"><span>EchoTrap prototype · mock analysis for SANGYAN demo</span><span>Investor protection, not investment advice</span></div>
     </main>
   )
@@ -265,6 +294,8 @@ export default function App() {
   const [view, setView] = useState<View>('home')
   const [lang, setLang] = useState<Lang>('en')
   const [messages, setMessages] = useState<string[]>(['', '', ''])
+  const [analysisReport, setAnalysisReport] = useState<AnalysisReport | null>(null)
+  const [analysisError, setAnalysisError] = useState<string | null>(null)
 
   const headerProps = useMemo(() => ({
     onHome: () => setView('home'),
@@ -273,19 +304,46 @@ export default function App() {
     setLang
   }), [lang])
 
-  const loadSample = () => setMessages([...sampleMessages])
-  const runAnalysis = () => {
+  const loadSample = () => {
+    setAnalysisError(null)
+    setMessages([...sampleMessages])
+  }
+
+  const runAnalysis = async () => {
+    const trimmed = messages.map((message) => message.trim()).filter((message) => message.length > 0)
+
+    if (trimmed.length < 2) {
+      setAnalysisError('Add at least two messages before running the analysis.')
+      return
+    }
+
+    setAnalysisError(null)
     setView('processing')
-    window.setTimeout(() => setView('results'), 1850)
+
+    try {
+      const raw = await fetchSequenceAnalysis(trimmed)
+      const report = mapSequenceToAnalysisReport(raw, trimmed)
+      setAnalysisReport(report)
+      setView('results')
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'The analysis could not be completed.'
+      setAnalysisError(message)
+      setView('analyzer')
+    }
   }
 
   return (
     <div className="app-shell">
       <Header {...headerProps}/>
-      {view === 'home' && <Home start={() => { loadSample(); setView('analyzer') }}/>} 
-      {view === 'analyzer' && <Analyzer messages={messages} setMessages={setMessages} onAnalyze={runAnalysis} loadSample={loadSample}/>} 
+      {view === 'home' && <Home start={() => { loadSample(); setView('analyzer') }}/>}
+      {view === 'analyzer' && (
+        <>
+          {analysisError && <div style={{ maxWidth: 900, margin: '20px auto 0', background: '#4a1c1c', color: '#ffd5d5', border: '1px solid #8d2d2d', borderRadius: 12, padding: '12px 16px' }}>{analysisError}</div>}
+          <Analyzer messages={messages} setMessages={setMessages} onAnalyze={runAnalysis} loadSample={loadSample}/>
+        </>
+      )}
       {view === 'processing' && <Processing/>}
-      {view === 'results' && <Results lang={lang} restart={() => setView('analyzer')}/>} 
+      {view === 'results' && <Results lang={lang} restart={() => setView('analyzer')} report={analysisReport}/>}
     </div>
   )
 }

@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* EchoTrap — permanent dark "intelligence console" palette */
+    --background: 225 52% 4%;        /* #050810 */
+    --foreground: 210 40% 96%;
+    --card: 225 46% 9%;              /* #0c1220 */
+    --card-foreground: 210 40% 96%;
+    --popover: 225 46% 9%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 187 86% 53%;          /* signal cyan #22d3ee */
+    --primary-foreground: 222 47% 6%;
+    --secondary: 222 43% 12%;        /* #111a2b */
+    --secondary-foreground: 210 40% 92%;
+    --muted: 222 43% 12%;
+    --muted-foreground: 219 16% 58%;
+    --accent: 187 86% 53%;
+    --accent-foreground: 222 47% 6%;
+    --destructive: 0 91% 71%;        /* #f87171 */
+    --destructive-foreground: 222 47% 6%;
+    --border: 222 42% 18%;           /* #1a2540 hairline */
+    --input: 222 42% 18%;
+    --ring: 187 86% 53%;
+    --radius: 0.5rem;
+    --sidebar-background: 225 46% 9%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 187 86% 53%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 222 43% 12%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 222 42% 18%;
+    --sidebar-ring: 187 86% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image:
+      radial-gradient(1200px 500px at 80% -10%, rgba(34, 211, 238, 0.06), transparent 60%),
+      radial-gradient(900px 420px at 5% 110%, rgba(52, 211, 153, 0.05), transparent 60%);
+    background-attachment: fixed;
+  }
+  /* Subtle scanline texture over the whole app */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 60;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 2px,
+      rgba(255, 255, 255, 0.012) 3px
+    );
+  }
+  ::selection {
+    background: rgba(34, 211, 238, 0.28);
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050810;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1a2540;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #22d3ee55;
+  }
+}
+
+@layer components {
+  /* uppercase mono micro-label used across the console */
+  .micro-label {
+    @apply font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground;
+  }
+  .panel {
+    @apply rounded-lg border border-hairline bg-panel;
+  }
+  .panel-2 {
+    @apply rounded-lg border border-hairline bg-panel-2;
+  }
+  .glow-cyan {
+    box-shadow: 0 0 24px -6px rgba(34, 211, 238, 0.45);
+  }
+  .led {
+    @apply inline-block h-2 w-2 rounded-full animate-led-pulse;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

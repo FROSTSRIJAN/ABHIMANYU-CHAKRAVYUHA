@@ -1,7 +1,10 @@
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parents[2]
+load_dotenv(ROOT / ".env")
+load_dotenv(ROOT / "ml-service" / ".env")
 MAX_INPUT_CHARS = int(os.getenv("ABHIMANYU_MAX_INPUT_CHARS", "10000"))
 MAX_SEQUENCE_LENGTH = int(os.getenv("ABHIMANYU_MAX_SEQUENCE_LENGTH", "20"))
 EVIDENCE_RELEVANCE_THRESHOLD = float(os.getenv("ABHIMANYU_EVIDENCE_RELEVANCE_THRESHOLD", "0.3"))
